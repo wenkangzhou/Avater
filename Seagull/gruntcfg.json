@@ -1,0 +1,52 @@
+{
+	"requirejs": {
+		"libs": {
+			"options": {
+				"baseUrl": "<%= config.srcDir %>/libs/3dlibs",
+				"paths": {
+					"$": "zepto",
+					"_": "underscore",
+					"_e": "underscore.extend",
+					"F": "fastclick"
+				},
+				"include": [
+					"$",
+					"_",
+					"_e",
+					"F"
+				],
+				"out": "<%= config.destDir %>/libs.js"
+			}
+		},
+		"Seagull": {
+			"options": {
+				"uglify": {
+					"except": ["$super"]
+				},
+				"baseUrl": "<%= config.srcDir %>",
+				"paths": {
+					"text": "libs/3dlibs/require.text",
+					"Swipe": "libs/3dlibs/swipe",
+					"AbstractApp": "libs/base/abstract.app",
+					"AbstractView": "libs/base/abstract.view",
+					"AbstractModel": "libs/base/abstract.model",
+					"AbstractStorage": "libs/base/abstract.storage",
+					"Core": "libs/base/core.inherit",
+					"Ajax": "libs/common/ajax",
+					"UtilityDate": "libs/common/utility.date",
+					"Models": "models/model",
+            		"Stores": "stores/store"
+				},
+				"include": [
+					"text!templates/index.html",
+					"text!templates/tao.html",
+					"config.js",
+					"main.js",
+					"views/index",
+					"views/tao"
+				],
+				"out": "<%= config.destDir %>/main.js"
+			}
+		}
+	}
+}

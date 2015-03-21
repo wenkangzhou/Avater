@@ -1,0 +1,39 @@
+<header>
+    <h2 class="title">Swipe 2</h2>
+</header>
+
+<div id="mySwipe" style="margin:0 auto" class="wrapper">
+    <div class="swipe-wrap">
+        <%_.each(photo,function(item,index) {%>
+            <div>
+                <section>
+                    <div class="container photo">
+                        <header>
+                            <ul>
+                                <li>V.<%=item.vol%></li>
+                            </ul>
+                        </header>
+                        <div class="main">
+                            <img src="http://lazyseagull.com/img/photo/photo_20150312.jpg" >
+                            <div class="etc"><%=item.name%><hr>by <%=item.author%></div>
+                        </div>
+                        <div class="sub">
+                            <div class="date">
+                                <h4><%=item.time%></h4>
+                                <div class="YMD"><%=item.time%></div>
+                            </div>
+                            <div class="quotation">
+                                <%=item.quotation%>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        <%})%>
+    </div>
+</div>
+
+<footer>
+    <span class="btn active photo">图</span>
+    <span class="btn tao">淘</span>
+</footer>

@@ -1,0 +1,4 @@
+1.node-inspector  启动监听
+2.node --debug-brk D:\Users\zhouwk\AppData\Roaming\npm\node_modules\grunt-cli\bin\grunt
+找到grunt bin文件
+3.按照生产的地址打开浏览器

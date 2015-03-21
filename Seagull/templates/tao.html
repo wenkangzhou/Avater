@@ -1,0 +1,23 @@
+<header>
+    <h2 class="title">Swipe 2</h2>
+</header>
+
+<div id="mySwipe" style="margin:0 auto" class="wrapper">
+    <div class="swipe-wrap">
+        <%_.each(tao,function(item,index) {%>
+            <div>
+                <section>
+                    <div class="container tao">
+                        <a onclick=<%=item.websrc%> ><img src="http://lazyseagull.com/img/tao/tao_20150312.jpg" ></a>
+                        <div class="etc"><%=item.etc%></div>
+                    </div>
+                </section>
+            </div>
+        <%})%>
+    </div>
+</div>
+
+<footer>
+    <span class="btn photo">图</span>
+    <span class="btn active tao">淘</span>
+</footer>
