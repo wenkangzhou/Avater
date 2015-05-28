@@ -1,4 +1,6 @@
 ﻿define(['Core', 'AbstractView', 'Models', 'Stores', getViewTemplatePath('index'), 'Swipe'], function(Core, View, Models, Stores, viewhtml) {
+    var testModel = Models.TEST.getInstance();
+    var testStore = Stores.TEST.getInstance();
     var PageView = new Core.Class(View, {
         onCreate: function() {
             this.$el.html(viewhtml);
@@ -14,6 +16,14 @@
             this.turning();
         },
         onShow: function() {
+            //TEST
+            testModel.execute(function(data){console.log(data)},function(e){console.log(e)});
+            testStore.setCities("wohaha");
+            testStore.setAttr("ha","hello1");
+            testStore.setAttr("haha","hello2");
+            console.log(testStore.get());
+            console.log(testStore.getAttr("haha"))
+            //TEST END
             var datas = {
                 photo:
                 [
