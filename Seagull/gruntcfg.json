@@ -34,8 +34,9 @@
 					"Core": "libs/base/core.inherit",
 					"Ajax": "libs/common/ajax",
 					"UtilityDate": "libs/common/utility.date",
+					"UtilityObject": "libs/common/utility.object",
 					"Models": "models/model",
-            		"Stores": "stores/store"
+            				"Stores": "stores/store"
 				},
 				"include": [
 					"text!templates/index.html",
