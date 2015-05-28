@@ -16,6 +16,7 @@
             'Core': app + 'base/core.inherit',
             'Ajax': app + 'common/ajax',
             'UtilityDate': app + 'common/utility.date',
+            'UtilityObject': app + 'common/utility.object',
             'Models': 'models/model',
             'Stores': 'stores/store'
         }
