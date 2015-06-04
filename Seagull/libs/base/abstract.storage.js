@@ -12,7 +12,7 @@ define(['Core', 'UtilityDate', 'UtilityObject'], function(Core, UtilityDate, Uti
      * @class AbsctractStorage
      */
     var AbstractStorage = new Core.Class({
-        propertys: function(options) {
+        propertys: function() {
 
             /**
              * @member lifeTime
@@ -22,8 +22,8 @@ define(['Core', 'UtilityDate', 'UtilityObject'], function(Core, UtilityDate, Uti
              * 如过不传递时间单位,默认时间单位为M
              */
             //this.lifeTime = '30M';
-            this.key = options.key;
-            this.lifeTime = options.lifeTime;
+            this.key = "default";
+            this.lifeTime = "30M";
         },
 
         /**
@@ -31,15 +31,9 @@ define(['Core', 'UtilityDate', 'UtilityObject'], function(Core, UtilityDate, Uti
          * @param {Object} obj
          * @description 复写自顶层Class的initialize
          */
-        initialize: function(options) {
-            this.propertys(options);
+        initialize: function() {
+            this.propertys();
             this.removeOverdueCathch();
-            this.assert();
-        },
-        assert: function() {
-            if (this.key === "") {
-                throw 'not override key property';
-            }
         },
         /**
          *删除过期缓存
@@ -66,7 +60,7 @@ define(['Core', 'UtilityDate', 'UtilityObject'], function(Core, UtilityDate, Uti
                 }
             };
             //最后将新数组放到缓存中
-            this.proxy.setItem(overdueClearKey, JSON.stringify(objsCatchNew));
+            localStorage.setItem(overdueClearKey, JSON.stringify(objsCatchNew));
         },
         /**
          * 将缓存的key和过期时间放到缓存中
