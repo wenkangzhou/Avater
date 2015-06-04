@@ -1,35 +1,16 @@
-﻿define(['Core', 'Ajax'], function(Core, ajax) {
+define(['Core', 'Ajax'], function(Core, ajax) {
 
     var AbstractModel = new Core.Class({
         initData: function() {
             this.dataformat = null;
             this.contentType = 'json';
             this.method = 'POST';
-        },
-        //默认属性
-        propertys: function() {
             this.url = null;
-            this.param = null;     
+            this.param = null;  
         },
 
-        setOption: function(options) {
-            _.extend(this, options);
-        },
-
-        assert: function() {
-            if (this.url === null) {
-                throw 'not override url property';
-            }
-            if (this.param === null) {
-                throw 'not override param property';
-            }
-        },
-
-        initialize: function(options) {
+        initialize: function() {
             this.initData();
-            this.propertys();
-            this.setOption(options);
-            this.assert();
         },
 
         setParam: function(key, val) {
@@ -44,10 +25,9 @@
             return this.param;
         },
 
-        //构建url请求方式，子类可复写，我们的model如果localstorage设置了值便直接读取，但是得是非正式环境
+        //构建url请求方式，子类可复写
         buildurl: function() {
             throw "[ERROR]abstract method:buildurl, must be override";
-
         },
 
         /**
@@ -67,9 +47,6 @@
             var self = this;
 
             var __onComplete = $.proxy(function(data) {
-
-
-
 
                 // @description 对获取的数据做字段映射
                 var datamodel = typeof this.dataformat === 'function' ? this.dataformat(data) : data;
@@ -113,6 +90,7 @@
         if (this.instance instanceof this) {
             return this.instance;
         } else {
+            //this.superclass.prototype.initialize();
             return this.instance = new this;
         }
     };
