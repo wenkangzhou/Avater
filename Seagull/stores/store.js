@@ -1,7 +1,8 @@
 define(['Core','AbstractStorage'], function(Core,AbstractStorage) {
-	var Awatar = {};
-    Awatar.TEST = new Core.Class(AbstractStorage,{
-        initialize: function () {
+	var Avatar = {};
+    Avatar.TEST = new Core.Class(AbstractStorage,{
+        initialize: function ($super) {
+            $super();
             this.key = 'TEST';
             this.lifeTime = '1D';
         },
@@ -9,10 +10,5 @@ define(['Core','AbstractStorage'], function(Core,AbstractStorage) {
             this.setAttr("city",str);
         }
     });
-    Awatar.NAXT = new Core.Class(AbstractStorage,{
-        propertys: function() {
-            this.lifeTime = '2D';
-        }
-    }); 
-    return Awatar;
+    return Avatar;
 });
