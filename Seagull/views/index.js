@@ -1,6 +1,7 @@
-﻿define(['Core', 'AbstractView', 'Models', 'Stores', getViewTemplatePath('index'), 'Swipe'], function(Core, View, Models, Stores, viewhtml) {
+define(['Core', 'AbstractView', 'Models', 'Stores', getViewTemplatePath('index'), 'Swipe'], function(Core, View, Models, Stores, viewhtml) {
     var testModel = Models.TEST.getInstance();
     var testStore = Stores.TEST.getInstance();
+    var mysqlTestModel = Models.MYSQLTEST.getInstance();
     var PageView = new Core.Class(View, {
         onCreate: function() {
             this.$el.html(viewhtml);
@@ -22,7 +23,8 @@
             testStore.setAttr("ha","hello1");
             testStore.setAttr("haha","hello2");
             console.log(testStore.get());
-            console.log(testStore.getAttr("haha"))
+            console.log(testStore.getAttr("haha"));
+            mysqlTestModel.execute(function(data){console.log(data)},function(e){console.log(e)});
             //TEST END
             var datas = {
                 photo:
