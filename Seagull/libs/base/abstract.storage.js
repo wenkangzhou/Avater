@@ -53,7 +53,7 @@ define(['Core', 'UtilityDate', 'UtilityObject'], function(Core, UtilityDate, Uti
                 tempObj = objsdInCatch[i];
                 if (new Date(tempObj.timeout).getTime() <= dateNow) {
                     //过期的删除
-                    this.proxy.removeItem(tempObj.key);
+                    localStorage.removeItem(tempObj.key);
                 } else {
                     //未过期添加到新的数组中
                     objsCatchNew.push(tempObj);
